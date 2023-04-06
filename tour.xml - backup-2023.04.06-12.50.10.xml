@@ -846,7 +846,7 @@
 			set(layer[radar].heading, 18);
 			set(layer[radar].enabled, false);
 		</action>
-		<hotspot name="spot4" style="skin_hotspotstyle" ath="-110.897" atv="26.037" linkedscene="scene_14" />
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="-110.897" atv="26.037" linkedscene="scene_15" />
 
 	</scene>
 
@@ -922,7 +922,6 @@
 			set(layer[radar].heading, 30);
 			set(layer[radar].enabled, false);
 		</action>
-		<hotspot name="spot3" style="skin_hotspotstyle" ath="56.591" atv="26.729" linkedscene="scene_12" />
 
 	</scene>
 
