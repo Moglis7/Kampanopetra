@@ -6,7 +6,7 @@
 	<style name="closeBtn" keep="true" url="../UI/CLOSE2.png" align="lefttop" edge="center"  onclick="videoplayer_close();" />
 
     <action name="video_check">        
-        if(get(vp_minimized), 
+        if(get(vp_minimized),
             set(vp_minimized, false);
             <!-- set(layer[videoplayer_bg].scale, 1); -->
             set(layer[videoplayer_bg].bgalpha, 0.8);
@@ -43,7 +43,8 @@
             js(console.log('videoplayer_open - there is already a videoplayer!'));
 
         ,
-            <!-- videoplayer_close(); -->            
+            <!-- Close Audio and make the audio button appear --> 
+			close_audio();           
             <!-- step one - add a background layer and fade it in -->
             addlayer(videoplayer_bg);
             set(layer[videoplayer_bg].keep, true);
