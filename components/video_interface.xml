@@ -1,0 +1,125 @@
+
+<krpano>
+  
+    <action name="skin_video_setup">
+		if(skin_video_setup_done !== true,
+			set(skin_video_setup_done, true);
+
+			<!-- use the video events for getting state updates -->
+			set(plugin[video].onvideoready, skin_video_updatestate() );
+			set(plugin[video].onvideoplay, skin_video_updatestate(); if(skin_settings_opened !== true, skin_autohide(2.0)); );
+			set(plugin[video].onvideopaused, skin_video_updatestate(); skin_show_playpause(); );
+			set(plugin[video].onvideocomplete, skin_video_updatestate(); skin_show_playpause(); skin_show(); );
+			set(plugin[video].onerror, skin_video_error() );
+
+			<!-- when paused onstart, show the play button -->
+			if(plugin[video].pausedonstart,
+				set(layer[skin_video_playpause].state, 'visible');
+				set(layer[skin_video_playpause].enabled, true);
+				tween(layer[skin_video_playpause].alpha, 1.0);
+			  );
+
+			<!-- use the current scene title -->
+			copy(layer[skin_title].html, scene[get(xml.scene)].title);
+
+			<!-- start the video-time update interval -->
+			setinterval(skin_video_seek_updates, 0.5, skin_video_updatetime() );
+		  );
+	</action>
+
+
+	<action name="skin_video_updatetime" scope="local">
+		copy(t1, plugin[video].time);
+		copy(t2, plugin[video].totaltime);
+		if(%1 !== null, calc(t1, %1 * t2); );
+		div(t1_min, t1, 60);
+		mod(t1_sec, t1, 60);
+		Math.floor(t1_min);
+		Math.floor(t1_sec);
+		div(t2_min, t2, 60);
+		mod(t2_sec, t2, 60);
+		Math.floor(t2_min);
+		Math.floor(t2_sec);
+		calc(layer[skin_video_time].html, t1_min + ':' + (t1_sec LT 10 ? '0' : '') + t1_sec + ' / ' + t2_min + ':' + (t2_sec LT 10 ? '0' : '') + t2_sec);
+		calc(layer[skin_video_seekpos].x, (t1 / t2 * 100) + '%');
+		calc(layer[skin_video_loadbar].width, (plugin[video].loadedbytes / plugin[video].totalbytes * 100) + '%');
+	</action>
+
+
+	<action name="skin_video_ondownseeking">
+		asyncloop(pressed,
+			screentolayer(skin_video_seekbar, mouse.stagex,mouse.stagey, lx,ly);
+			calc(seekpos, lx / layer[skin_video_seekbar].pixelwidth);
+			clamp(seekpos, 0.0, 1.0);
+			skin_video_updatetime(seekpos);
+			delete(lx, ly);
+		  ,
+			plugin[video].seek(calc((seekpos * 100) + '%'));
+		  );
+	</action>
+
+
+	<action name="skin_video_updatestate">
+		calc(layer[skin_video_playpause].crop, plugin[video].ispaused ? '0|640|64|64' : '64|640|64|64');
+		copy(layer[skin_btn_playpause].crop, layer[skin_video_playpause].crop);
+	</action>
+
+
+	<action name="skin_video_error">
+		calc(layer[skin_error_msg].html, 'Error: ' + videoerror);
+		set(layer[skin_error].visible, true);
+	</action>  
+	
+	<action name="test_bar">
+	  		addlayer(skin_video_seekbar_container);
+            set(layer[skin_video_seekbar_container].keep, true);
+            set(layer[skin_video_seekbar_container].parent, layer[videoplayer_plugin]);
+            set(layer[skin_video_seekbar_container].type, container);
+            set(layer[skin_video_seekbar_container].align, bottom);
+            set(layer[skin_video_seekbar_container].x, 0);
+            set(layer[skin_video_seekbar_container].y, -20);
+            set(layer[skin_video_seekbar_container].y, -20);
+            set(layer[skin_video_seekbar_container].width.desktop.and.fullscreensupport, -228);
+            set(layer[skin_video_seekbar_container].width.desktop.and.no-fullscreensupport, -118);
+            set(layer[skin_video_seekbar_container].width.no-desktop.and.fullscreensupport, -118);
+            set(layer[skin_video_seekbar_container].width.no-desktop.and.no-fullscreensupport, -148);
+            set(layer[skin_video_seekbar_container].height, 30);
+            set(layer[skin_video_seekbar_container].bgcapture, true);
+            set(layer[skin_video_seekbar_container].ondown, stopdelayedcall(skin_autohide);skin_video_ondownseeking(););       
+            <!-- skin_video_seekbar -->
+            addlayer(skin_video_seekbar);
+            set(layer[skin_video_seekbar].keep, true);
+            set(layer[skin_video_seekbar].parent, layer[skin_video_seekbar_container]);     
+            set(layer[skin_video_seekbar].type, container);
+            set(layer[skin_video_seekbar].align, center);
+            set(layer[skin_video_seekbar].bgcolor, "0xFFFFFF");
+            set(layer[skin_video_seekbar].bgalpha, "0.25");
+            set(layer[skin_video_seekbar].width, "100%");
+            set(layer[skin_video_seekbar].height, 4);
+            <!-- skin_video_loadbar -->
+            addlayer(skin_video_loadbar);
+            set(layer[skin_video_loadbar].keep, true);
+            set(layer[skin_video_loadbar].parent, layer[skin_video_seekbar]);     
+            set(layer[skin_video_loadbar].type, container);
+            set(layer[skin_video_loadbar].align, left);
+            set(layer[skin_video_loadbar].bgcolor, "0xFFFFFF");
+            set(layer[skin_video_loadbar].bgalpha, "0.50");
+            set(layer[skin_video_loadbar].width, 0);
+            set(layer[skin_video_loadbar].height, 4);
+            <!-- skin_video_seekpos -->
+            addlayer(skin_video_seekpos);
+            set(layer[skin_video_seekpos].keep, true);
+            set(layer[skin_video_seekpos].parent, layer[skin_video_seekbar]);     
+            set(layer[skin_video_seekpos].type, container);
+            set(layer[skin_video_seekpos].align, left);
+            set(layer[skin_video_seekpos].edge, center);
+            set(layer[skin_video_seekpos].bgcolor, "0xFFFFFF");
+            set(layer[skin_video_seekpos].bgalpha, "1.0");
+            set(layer[skin_video_seekpos].x, "0");
+            set(layer[skin_video_seekpos].bgroundedge, "8");
+            set(layer[skin_video_seekpos].width, 10);
+            set(layer[skin_video_seekpos].height, 10);
+
+	</action>  
+</krpano>
+
