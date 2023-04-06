@@ -332,7 +332,7 @@
 		         style="skin_hotspotstyle" 
 				 ath="141.907" 
 				 atv="27.230" 
-				 linkedscene="scene_2" onclick="loadscene(scene_2,null,MERGE,BLEND(1)); lookat(135,5,120);" />
+				 linkedscene="scene_2" linkedscene_lookat="135,5,120" />
 		<hotspot name="spot3" 
 		         style="skin_hotspotstyle" 
 				 ath="-119.787" 
