@@ -6,6 +6,7 @@
 	<include url="./components/book.xml"/> 
 	<include url="./components/link.xml"/> 
 	<include url="./components/audioPlayer.xml"/> 
+	<include url="./components/socials.xml"/> 
 
 	<style name="tooltip"
 	       onover="copy(layer[tooltip].html, tooltip);

@@ -1,0 +1,9 @@
+
+<krpano>  
+  <action name="openFBlink">
+  		openurl('https://www.youtube.com/watch?v=xvFZjo5PgG0',_blank);    
+  </action>
+  
+  
+</krpano>
+
