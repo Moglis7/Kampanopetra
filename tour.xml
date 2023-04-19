@@ -112,7 +112,7 @@
 	               maps_loadonfirstuse="true"
 	               gyro="true"
 	               gyro_keeplookingdirection="false"
-	               webvr="false"
+	               webvr="true "
 	               webvr_keeplookingdirection="true"
 	               webvr_prev_next_hotspots="true"
 	               autotour="false"
@@ -172,6 +172,23 @@
 
 	<events name="orientation" keep="true" onresize="closemap();"  />
 	<events name="book_visibility" keep="true" onresize="popup_close();" onnewscene="toogle_book_visibility()" />
+
+	<!-- Temporary code for vr controll -->
+	<!-- <events name="toggle_video_btn_onVR" keep="true" onentervr="remove_video_btn();"  onexitvr="remove_video_btn();">
+	<action name="remove_video_btn">
+		popup_close();
+		closemap();
+		
+		
+		
+	</action>
+
+	<action name="remove_video_btn">
+	
+		
+		
+	</action> -->
+	
 
 	
 	<!-- <layer name="buttonbarw" width="100%" height="40" bottom="5" align="center" backgroundcolor="0x000000" opacity="0.7">
