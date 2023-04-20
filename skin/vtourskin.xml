@@ -98,13 +98,17 @@
 
 	<!-- VR support - https://krpano.com/plugins/webvr/ -->
 	<include url="%VIEWER%/plugins/webvr.xml" devices="html5" />
+
+ 	
+
+
 	
 	<!-- overwrite some settings from the webvr.xml for the skin integration -->
 	<plugin name="webvr" keep="true" devices="html5.and.webgl"
 	        url="calc:skin_settings.webvr == true ? '%VIEWER%/plugins/webvr.js' : null"
 	        onavailable="skin_webvr_onavailable();"
-	        onentervr="skin_showloading(false); webvr_onentervr(); skin_webvr_setup(); skin_reloadscene_webvr();"
-	        onexitvr="webvr_onexitvr(); skin_webvr_setup(); skin_reloadscene_webvr();"
+	        onentervr="skin_showloading(false); webvr_onentervr(); skin_webvr_setup(); skin_reloadscene_webvr(); set(hotspot[play_btn].visible, false);"
+	        onexitvr="webvr_onexitvr(); skin_webvr_setup(); skin_reloadscene_webvr(); set(hotspot[play_btn].visible, true);" 
 	        />
 	
 	<!-- webvr button style (adjust to match skin style) -->
@@ -367,7 +371,7 @@
 					<layer name="skin_btn_out"   style="skin_base|skin_glow" crop="64|320|64|64" align="center"      x="+100" y="0"  scale="0.5" ondown="set(fov_moveforce,+1);"     onup="set(fov_moveforce,0);" />
 				</layer> -->
 				<layer name="skin_btn_gyro"       style="skin_base|skin_glow|tooltip" crop="0|384|64|64"  align="center"   tooltip="gyro"         x="-40" y="0"  scale="0.5" onclick="switch(plugin[skin_gyro].enabled); if(plugin[skin_gyro].enabled, skin_showmap(false));" visible="false" devices="html5" />
-				<layer name="skin_btn_vr"         style="skin_base|skin_glow|tooltip" crop="0|0|80|64"    align="center"   tooltip="VR"           x="50" y="0"  scale="0.5" onclick="webvr.enterVR();" visible="false" />
+				<layer name="skin_btn_vr"         style="skin_base|skin_glow|tooltip" crop="0|0|80|64"    align="center"   tooltip="VR"           x="50" y="0"  scale="0.5" onclick="closeDependencies_openVR();" visible="false" />
 				<layer name="skin_btn_hidebar"    style="skin_base|skin_glow|tooltip" crop="0|448|64|64"  align="center"   tooltip="Hide Bar"     x="0"   y="0"  scale="0.5" onclick="skin_hideskin()" />
 				<layer name="skin_btn_book"       style="skin_book|skin_glow|tooltip"                     align="left"     tooltip="Read Info"    x="20"   y="-1.5"  scale="0.2" onclick="open_picture();" />		
 				<layer name="skin_btn_play"       style="skin_play|skin_glow|tooltip"   		  align="left"     tooltip="Video"        x="80"  y="-1"  scale="0.1" onclick="video_check()" />				

@@ -5,7 +5,7 @@
 	<textstyle name="SKIN_TOOLTIPS" font="Arial" fontsize="16" bold="true" italic="false" background="false" border="false" textcolor="0xFFFFFF" effect="dropshadow(1,45,0x000000,4,1);" fadeintime="0.1" fadetime="0.05" />
 	<style name="closeBtn" keep="true" url="../UI/CLOSE2.png" align="lefttop" edge="center"  onclick="videoplayer_close();" />
 
-    <action name="video_check">        
+    <action name="video_check">    
         if(get(vp_minimized),
             set(vp_minimized, false);
             <!-- set(layer[videoplayer_bg].scale, 1); -->
@@ -29,9 +29,9 @@
 			set(layer[videoplayer_plugin].align, center);			
             tween(plugin[videoplayer_plugin].scale, 1, 0.5, easeOutBack, do_time_bar(videoplayer_plugin,plugin[videoplayer_plugin],bottom,null,70%,10,0,-15,false,10));  
 			tween(layer[videoplayer_plugin].x, 0);
-			tween(layer[videoplayer_plugin].y, 0);         
+			tween(layer[videoplayer_plugin].y, 0); 
 			videoplayer_plugin_resize();
-        , 			
+        ,
             videoplayer_open(get(vp_video), get(vp_jpg), get(volume));
         );
     </action>
@@ -163,19 +163,19 @@
     );     
 	</action>
 
-    <action name="videoplayer_close">		
+    <action name="videoplayer_close">
         set(events.[videoplayer_events].name, null);
 		if(layer[videoplayer_plugin], layer[videoplayer_plugin].pause());
 		set(layer[videoplayer_bg].onclick, null);
-
+		
 		tween(layer[videoplayer_plugin].scale, 0.0, 0.5, easeInBack);
 		tween(layer[videoplayer_close].scale, 0.0, 0.5, easeInBack);
 		tween(layer[videoplayer_bg].alpha, 0.0, 0.5, default,
 			removelayer(videoplayer_plugin);
 			removelayer(videoplayer_bg);
 			removelayer(videoplayer_close);	
-			set(hotspot[play_btn].visible, true);		
-		); 
+			if(!webvr.isenabled, set(hotspot[play_btn].visible, true););
+		);
         <!-- removelayer(videoplayer_plugin);
 		removelayer(videoplayer_bg); -->
 	</action>

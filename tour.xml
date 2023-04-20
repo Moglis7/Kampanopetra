@@ -112,7 +112,7 @@
 	               maps_loadonfirstuse="true"
 	               gyro="true"
 	               gyro_keeplookingdirection="false"
-	               webvr="true "
+	               webvr="true"
 	               webvr_keeplookingdirection="true"
 	               webvr_prev_next_hotspots="true"
 	               autotour="false"
@@ -173,63 +173,72 @@
 	<events name="orientation" keep="true" onresize="closemap();"  />
 	<events name="book_visibility" keep="true" onresize="popup_close();" onnewscene="toogle_book_visibility()" />
 
-	<!-- Temporary code for vr controll -->
-	<!-- <events name="toggle_video_btn_onVR" keep="true" onentervr="remove_video_btn();"  onexitvr="remove_video_btn();">
-	<action name="remove_video_btn">
-		popup_close();
-		closemap();
-		
-		
-		
+	<!--Start code for vr controll -->
+	<!-- <events name="toggle_VR_desktop" keep="true" webvr_onavailable="VR_check_if_desktop();" /> -->
+	<action name="VR_check_if_desktop">		
+		if (get(devicename) == "Desktop", 
+		set(layer[skin_btn_vr].visible, false);
+		);		
 	</action>
+	<action name="closeDependencies_openVR">
+	    if(layer[videoplayer_bg], 
+			if_minimized(); 
 
-	<action name="remove_video_btn">
+			set(events.[videoplayer_events].name, null);
+			if(layer[videoplayer_plugin], layer[videoplayer_plugin].pause());
+			set(layer[videoplayer_bg].onclick, null);
+			
+			tween(layer[videoplayer_plugin].scale, 0.0, 0.5, easeInBack);
+			tween(layer[videoplayer_close].scale, 0.0, 0.5, easeInBack);
+			tween(layer[videoplayer_bg].alpha, 0.0, 0.5, default,
+				removelayer(videoplayer_plugin);
+				removelayer(videoplayer_bg);
+				removelayer(videoplayer_close);	
+				if(!webvr.isenabled, set(hotspot[play_btn].visible, true););
+				webvr.enterVR();
+			);
+			,
+			webvr.enterVR();
+		);
+	</action>
+	<!--Start code for vr controll -->
 	
-		
-		
-	</action> -->
-	
-
-	
-	<!-- <layer name="buttonbarw" width="100%" height="40" bottom="5" align="center" backgroundcolor="0x000000" opacity="0.7">
-  
-        
+	<!-- <layer name="buttonbarw" width="100%" height="40" bottom="5" align="center" backgroundcolor="0x000000" opacity="0.7">        
         <layer name="button1" width="60" height="30" align="left" url="%SWFPATH%/skin/button_1.png" onclick="dosomething1();" />
         <layer name="button2" width="60" height="30" align="left" url="%SWFPATH%/skin/button_2.png" onclick="dosomething2();" />
         <layer name="button3" width="60" height="30" align="left" url="%SWFPATH%/skin/button_3.png" onclick="dosomething3();" />
-  
-    </layer> -->
+	</layer> -->
 
-	<scene name="scene_1" 
-	       title="1" 
+	<scene name="scene_1"
+	       title="1"
 		   onstart="updateradar();"
-		   thumburl="panos/1.tiles/thumb.jpg" 
-		   lat="35.17892917" 
-		   lng="33.90665389" 
+		   thumburl="panos/1.tiles/thumb.jpg"
+		   lat="35.17892917"
+		   lng="33.90665389"
 		   heading="0.0" >
 		   
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
  
-		<view hlookat="-32.437" 
-		      vlookat="6.704"  
-			  fovtype="MFOV" 
-			  fov="120.000" 
-			  maxpixelzoom="2.0" 
-			  fovmin="70" 
-			  fovmax="140" 
-			  limitview="auto" />                                                        
+		<view hlookat="-32.437"
+		      vlookat="6.704"
+			  fovtype="MFOV"
+			  fov="120.000"
+			  maxpixelzoom="2.0"
+			  fovmin="70"
+			  fovmax="140"
+			  limitview="auto" />                          
 
 		<preview url="panos/1.tiles/preview.jpg" />
 
 		<image>
 			<cube url="panos/1.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,640,1280,2560" />
 		</image>
-		<hotspot name="spot1" 
-		         style="skin_hotspotstyle" 
-				 ath="-32.364" 
-				 atv="29.332"   
-				 linkedscene="scene_2" />		
+		<hotspot name="spot1"
+		         style="skin_hotspotstyle"
+				 ath="-32.364"
+				 atv="29.332"
+				 linkedscene="scene_2" />
 				 
 		<hotspot name="play_btn"
 				keep="false"
@@ -245,7 +254,9 @@
 				ath="-32.364"
 				atv="5.0"   
 				url="./UI/play4.png"
-				onclick="set(visible, false); video_check();"  
+				checkvr="if(webvr.isenabled, set(visible,false);)"
+				onloaded="checkvr();" 
+				onclick="set(visible, false); video_check();"
 				/>
 		<hotspot name="audio_btn"
 				keep="false"
@@ -259,9 +270,9 @@
 				tz="-345"
 				scale="0.38"
 				ath="-32.364"
-				atv="5.0"   
+				atv="5.0"
 				url="./UI/audio1.png"
-				onclick="set(visible, false); open_audio();"  
+				onclick="set(visible, false); open_audio();"
 				/>
   
 		<action name="updateradar">
@@ -273,12 +284,12 @@
 
 	</scene>
 
-	<scene name="scene_2" 
-	       title="2" 
+	<scene name="scene_2"
+	       title="2"
 		   onstart="updateradar();"
-		   thumburl="panos/2.tiles/thumb.jpg" 
-		   lat="35.17886111" 
-		   lng="33.90670222" 
+		   thumburl="panos/2.tiles/thumb.jpg"
+		   lat="35.17886111"
+		   lng="33.90670222"
 		   heading="0.0">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
