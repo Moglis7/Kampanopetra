@@ -170,16 +170,19 @@
 	<include url="skin/vtourskin_design_117round.xml" />
 	<!-- <include url="skin/vtourskin_design_black.xml"       /> -->
 
+
 	<events name="orientation" keep="true" onresize="closemap();"  />
 	<events name="book_visibility" keep="true" onresize="popup_close();" onnewscene="toogle_book_visibility()" />
 
 	<!--Start code for vr controll -->
-	<events name="toggle_VR_desktop" keep="true" webvr_onavailable="VR_check_if_desktop();" />
-	<action name="VR_check_if_desktop">		
+	<!-- <events name="toggle_VR_desktop" keep="true" webvr_onavailable="VR_check_if_desktop();" /> -->
+
+	<action name="VR_check_if_desktop">
 		if (get(devicename) == "Desktop", 
-		set(layer[skin_btn_vr].visible, false);
-		);		
+			set(layer[skin_btn_vr].visible, false);
+		);
 	</action>
+
 	<action name="closeDependencies_openVR">
 	    if(layer[videoplayer_bg], 
 			if_minimized(); 
@@ -194,7 +197,6 @@
 				removelayer(videoplayer_plugin);
 				removelayer(videoplayer_bg);
 				removelayer(videoplayer_close);	
-				if(!webvr.isenabled, set(hotspot[play_btn].visible, true););
 				webvr.enterVR();
 			);
 			,

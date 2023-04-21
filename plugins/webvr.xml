@@ -319,7 +319,8 @@
 	       html="Enter VR"
 	       align="top" y="24"
 	       autoalpha="true" alpha="0.0"
-	       onclick="webvr.enterVR();"
+		   
+	       onclick="closeDependencies_openVR();"
 	       />
 
 	<layer name="webvr_exitbutton" keep="true" vr="true"
