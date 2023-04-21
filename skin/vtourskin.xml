@@ -99,16 +99,13 @@
 	<!-- VR support - https://krpano.com/plugins/webvr/ -->
 	<include url="%VIEWER%/plugins/webvr.xml" devices="html5" />
 
- 	
-
-
 	
 	<!-- overwrite some settings from the webvr.xml for the skin integration -->
 	<plugin name="webvr" keep="true" devices="html5.and.webgl"
 	        url="calc:skin_settings.webvr == true ? '%VIEWER%/plugins/webvr.js' : null"
-	        onavailable="skin_webvr_onavailable(); "
+	        onavailable="skin_webvr_onavailable();"
 	        onentervr="skin_showloading(false); webvr_onentervr(); skin_webvr_setup(); skin_reloadscene_webvr(); set(hotspot[play_btn].visible, false);"
-	        onexitvr="webvr_onexitvr(); skin_webvr_setup(); skin_reloadscene_webvr(); set(hotspot[play_btn].visible, true);" 
+	        onexitvr="webvr_onexitvr(); skin_webvr_setup(); skin_reloadscene_webvr(); onExitVr_checkForVideo();" 
 	        />
 	
 	<!-- webvr button style (adjust to match skin style) -->
@@ -391,12 +388,12 @@
 	</layer>
 
 	<!-- previous/next scene buttons for the hidden skin mode -->
-	<layer name="skin_btn_prev_fs" keep="true" type="container" align="lefttop"  x="-50" width="40" height="100%" bgcapture="true" alpha="0.0" enabled="false" capture="false" zorder="2" onclick="skin_nextscene_loop(-1);" onhover="tween(alpha,1.0);" onout="tween(alpha,0.25);" ondown.touch="onhover();" onup.touch="onout();">
+	<!-- <layer name="skin_btn_prev_fs" keep="true" type="container" align="lefttop"  x="-50" width="40" height="100%" bgcapture="true" alpha="0.0" enabled="false" capture="false" zorder="2" onclick="skin_nextscene_loop(-1);" onhover="tween(alpha,1.0);" onout="tween(alpha,0.25);" ondown.touch="onhover();" onup.touch="onout();">
 		<layer name="skin_btn_prev_fs_icon" style="skin_base" crop="0|64|64|64"  align="center" scale="0.5" enabled="false" />
 	</layer>
 	<layer name="skin_btn_next_fs" keep="true" type="container" align="righttop" x="-50" width="40" height="100%" bgcapture="true" alpha="0.0" enabled="false" capture="false" zorder="2" onclick="skin_nextscene_loop(+1);" onhover="tween(alpha,1.0);" onout="tween(alpha,0.25);" ondown.touch="onhover();" onup.touch="onout();">
 		<layer name="skin_btn_next_fs_icon" style="skin_base" crop="64|64|64|64" align="center" scale="0.5" enabled="false" />
-	</layer>
+	</layer> -->
 
 
 	<!-- gyro plugin -->

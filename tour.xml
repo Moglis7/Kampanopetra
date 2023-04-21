@@ -175,8 +175,7 @@
 	<events name="book_visibility" keep="true" onresize="popup_close();" onnewscene="toogle_book_visibility()" />
 
 	<!--Start code for vr controll -->
-	<!-- <events name="toggle_VR_desktop" keep="true" webvr_onavailable="VR_check_if_desktop();" /> -->
-
+	<events name="toggle_VR_desktop" keep="true" webvr_onavailable="VR_check_if_desktop();" />
 	<action name="VR_check_if_desktop">
 		if (get(devicename) == "Desktop", 
 			set(layer[skin_btn_vr].visible, false);
@@ -184,7 +183,8 @@
 	</action>
 
 	<action name="closeDependencies_openVR">
-	    if(layer[videoplayer_bg], 
+		webvr.enterVR();
+	    <!-- if(layer[videoplayer_bg], 
 			if_minimized(); 
 
 			set(events.[videoplayer_events].name, null);
@@ -201,9 +201,18 @@
 			);
 			,
 			webvr.enterVR();
-		);
+		); -->
 	</action>
-	<!--Start code for vr controll -->
+	
+	<action name="onExitVr_checkForVideo">
+		if(plugin[videoplayer_plugin], 
+			set(hotspot[play_btn].visible, false);
+			, 
+			set(hotspot[play_btn].visible, true);
+		)	
+	</action>
+	
+	<!-- End code for vr controll -->
 	
 	<!-- <layer name="buttonbarw" width="100%" height="40" bottom="5" align="center" backgroundcolor="0x000000" opacity="0.7">        
         <layer name="button1" width="60" height="30" align="left" url="%SWFPATH%/skin/button_1.png" onclick="dosomething1();" />
