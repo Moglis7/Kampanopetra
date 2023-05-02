@@ -118,7 +118,7 @@
 	               autotour="false"
 	               littleplanetintro="false"
 	               followmousecontrol="false"
-	               title="false"
+	               title="true"
 	               thumbs="false"
 	               thumbs_width="120" thumbs_height="80" thumbs_padding="10" thumbs_crop="0|40|240|160"
 	               thumbs_opened="false"
@@ -175,7 +175,7 @@
 	<events name="book_visibility" keep="true" onresize="popup_close();" onnewscene="toogle_book_visibility()" />
 
 	<!--Start code for vr controll -->
-	<events name="toggle_VR_desktop" keep="true" webvr_onavailable="VR_check_if_desktop();" />
+	<!-- <events name="toggle_VR_desktop" keep="true" webvr_onavailable="VR_check_if_desktop();" /> -->
 	<action name="VR_check_if_desktop">
 		if (get(devicename) == "Desktop", 
 			set(layer[skin_btn_vr].visible, false);
@@ -1025,7 +1025,7 @@
 				 ath="151.602" 
 				 atv="23.417" 
 				 linkedscene="scene_12" 
-				 onclick="loadscene(scene_12,null,MERGE,BLEND(1)); lookat(160,5,120);"/>
+				 linkedscene_lookat="160,5,120"/>
 				 
 				 
 		<action name="updateradar">
@@ -1058,7 +1058,7 @@
 				 ath="-16.963" 
 				 atv="23.410" 
 				 linkedscene="scene_13" 
-				 onclick="loadscene(scene_13,null,MERGE,BLEND(1)); lookat(-110,5,120);" />
+				 linkedscene_lookat="250,5,120" />
 				 
 		<action name="updateradar">
 			set(layer[activespot].parent, spot17);
