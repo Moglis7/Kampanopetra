@@ -323,7 +323,7 @@
 		         style="skin_hotspotstyle" 
 				 ath="-37.547" 
 				 atv="24.180" 
-				 linkedscene="scene_3" />
+				 linkedscene="scene_3" linkedscene_lookat="-28.316,0,120"/> 
 		<hotspot name="spot2" 
 		         style="skin_hotspotstyle" 
 				 ath="131.447" 
@@ -367,7 +367,7 @@
 		         style="skin_hotspotstyle" 
 				 ath="57.027" 
 				 atv="24.182" 
-				 linkedscene="scene_4" />
+				 linkedscene="scene_4" linkedscene_lookat="-28.964,0,120" />
 		<hotspot name="spot2" 
 		         style="skin_hotspotstyle" 
 				 ath="141.907" 
@@ -377,12 +377,12 @@
 		         style="skin_hotspotstyle" 
 				 ath="-119.787" 
 				 atv="23.196" 
-				 linkedscene="scene_14" />
+				 linkedscene="scene_14" linkedscene_lookat="-33.040,0,120" />
 		<hotspot name="spot4" 
 		         style="skin_hotspotstyle" 
 				 ath="-31.852" 
 				 atv="30.574" 
-				 linkedscene="scene_11" />
+				 linkedscene="scene_11" linkedscene_lookat="-30.116,0,120" />
 				 
 		<action name="updateradar">
 			set(layer[activespot].parent, spot3);
@@ -421,7 +421,7 @@
 		         style="skin_hotspotstyle" 
 				 ath="-27.437" 
 				 atv="23.487" 
-				 linkedscene="scene_5" />
+				 linkedscene="scene_5" linkedscene_lookat="-31.260,0,120" />
 		<hotspot name="spot2" 
 		         style="skin_hotspotstyle" 
 				 ath="148.752" 
@@ -488,7 +488,7 @@
 		         style="skin_hotspotstyle" 
 				 ath="-32.586" 
 				 atv="25.631" 
-				 linkedscene="scene_6" />
+				 linkedscene="scene_6" linkedscene_lookat="-21.445,0,120" />
 		<hotspot name="spot2" 
 		         style="skin_hotspotstyle" 
 				 ath="145.812" 
@@ -533,7 +533,7 @@
 		         style="skin_hotspotstyle" 
 				 ath="-23.062" 
 				 atv="25.970" 
-				 linkedscene="scene_7" />
+				 linkedscene="scene_7" linkedscene_lookat="-116.449,0,120" />
 		<hotspot name="spot2" 
 		         style="skin_hotspotstyle" 
 				 ath="156.833" 
@@ -579,7 +579,7 @@
 		         style="skin_hotspotstyle" 
 				 ath="-116.661" 
 				 atv="27.976" 
-				 linkedscene="scene_8" />
+				 linkedscene="scene_8" linkedscene_lookat="-242.061,0,120" />
 		<hotspot name="spot2" 
 		         style="skin_hotspotstyle" 
 				 ath="61.128" 
@@ -624,7 +624,7 @@
 		         style="skin_hotspotstyle" 
 				 ath="125.081" 
 				 atv="28.090" 
-				 linkedscene="scene_9" />
+				 linkedscene="scene_9" linkedscene_lookat="-92.796,0,120" />
 		<hotspot name="spot2" 
 		         style="skin_hotspotstyle" 
 				 ath="61.292" 
@@ -669,7 +669,7 @@
 		         style="skin_hotspotstyle" 
 				 ath="-95.373" 
 				 atv="22.245" 
-				 linkedscene="scene_10" />
+				 linkedscene="scene_10" linkedscene_lookat="-33.035,0,120" />
 		<hotspot name="spot2" 
 		         style="skin_hotspotstyle" 
 				 ath="76.947" atv="23.413" 
@@ -734,7 +734,7 @@
 		         style="skin_hotspotstyle" 
 				 ath="-31.974" 
 				 atv="29.210" 
-				 linkedscene="scene_11" />
+				 linkedscene="scene_11" linkedscene_lookat="-30.116,0,120" />
 		<hotspot name="spot2" 
 		         style="skin_hotspotstyle" 
 				 ath="146.019" 
@@ -800,7 +800,7 @@
 		         style="skin_hotspotstyle" 
 				 ath="-37.977" 
 				 atv="26.659" 
-				 linkedscene="scene_12" />
+				 linkedscene="scene_12"  linkedscene_lookat="-21.748,0,120"  />
 		<hotspot name="spot2" 
 		         style="skin_hotspotstyle" 
 				 ath="-121.154" 
@@ -872,7 +872,7 @@
 		         style="skin_hotspotstyle" 
 				 ath="-23.366" 
 				 atv="20.178" 
-				 linkedscene="scene_16" />
+				 linkedscene="scene_16" linkedscene_lookat="-19.550,0,120" />
 		<hotspot name="spot2" 
 		         style="skin_hotspotstyle" 
 				 ath="159.073" 
@@ -905,12 +905,12 @@
 		         style="skin_hotspotstyle" 
 				 ath="-24.193" 
 				 atv="19.895" 
-				 linkedscene="scene_17" />
+				 linkedscene="scene_17" linkedscene_lookat="163.081,0,120"  />
 		<hotspot name="spot2" 
 		         style="skin_hotspotstyle" 
 				 ath="-115.042" 
 				 atv="26.909" 
-				 linkedscene="scene_12" />
+				 linkedscene="scene_12" linkedscene_lookat="-21.748,0,120" />
 				 
 		<action name="updateradar">
 			set(layer[activespot].parent, spot13);
@@ -949,12 +949,12 @@
 		         style="skin_hotspotstyle" 
 				 ath="-32.633" 
 				 atv="24.789" 
-				 linkedscene="scene_15" />
+				 linkedscene="scene_15" linkedscene_lookat="-27.910,0,120" />
 		<hotspot name="spot2" 
 		         style="skin_hotspotstyle" 
 				 ath="149.439" 
 				 atv="26.558" 
-				 linkedscene="scene_3" />
+				 linkedscene="scene_3" linkedscene_lookat="-28.316,0,120"  />
 				 
 		<action name="updateradar">
 			set(layer[activespot].parent, spot14);
@@ -987,7 +987,7 @@
 		         style="skin_hotspotstyle" 
 				 ath="-28.822" 
 				 atv="19.874" 
-				 linkedscene="scene_22" />
+				 linkedscene="scene_22" linkedscene_lookat="-76.311,0,120" />
 		<hotspot name="spot2" 
 		         style="skin_hotspotstyle" 
 				 ath="159.696" 
@@ -1019,7 +1019,7 @@
 		         style="skin_hotspotstyle" 
 				 ath="-16.931" 
 				 atv="18.830" 
-				 linkedscene="scene_21" />
+				 linkedscene="scene_21" linkedscene_lookat="148.754,0,120" />
 		<hotspot name="spot2" 
 		         style="skin_hotspotstyle" 
 				 ath="151.602" 
@@ -1052,7 +1052,7 @@
 		         style="skin_hotspotstyle" 
 				 ath="161.264" 
 				 atv="21.023" 
-				 linkedscene="scene_18" />
+				 linkedscene="scene_18"  linkedscene_lookat="-151.530,0,120" />
 		<hotspot name="spot2" 
 		         style="skin_hotspotstyle" 
 				 ath="-16.963" 
@@ -1084,7 +1084,7 @@
 		         style="skin_hotspotstyle" 
 				 ath="-153.576" 
 				 atv="22.018" 
-				 linkedscene="scene_19" />
+				 linkedscene="scene_19" linkedscene_lookat="-140.045,0,120" />
 		<hotspot name="spot2" 
 		         style="skin_hotspotstyle" 
 				 ath="31.775" 
@@ -1211,7 +1211,7 @@
 		         style="skin_hotspotstyle" 
 				 ath="146.674" 
 				 atv="20.475" 
-				 linkedscene="scene_20" />
+				 linkedscene="scene_20" linkedscene_lookat="-141.835,0,120" />
 		<hotspot name="spot2" 
 		         style="skin_hotspotstyle" 
 				 ath="-34.443" 
@@ -1242,7 +1242,7 @@
 		         style="skin_hotspotstyle" 
 				 ath="-75.389" 
 				 atv="24.390" 
-				 linkedscene="scene_23" />
+				 linkedscene="scene_23" linkedscene_lookat="-269.872,0,120" />
 		<hotspot name="spot2" 
 		         style="skin_hotspotstyle" 
 				 ath="108.824" 
@@ -1295,7 +1295,7 @@
 		         style="skin_hotspotstyle" 
 				 ath="90.644" 
 				 atv="25.118" 
-				 linkedscene="scene_24" />
+				 linkedscene="scene_24" linkedscene_lookat="-151.977,0,120" />
 		<hotspot name="spot2" 
 		         style="skin_hotspotstyle" 
 				 ath="-87.822" 
@@ -1348,7 +1348,7 @@
 		         style="skin_hotspotstyle" 
 				 ath="-151.062" 
 				 atv="24.008" 
-				 linkedscene="scene_25" />
+				 linkedscene="scene_25" linkedscene_lookat="-53.328,0,120" />
 		<hotspot name="spot2" 
 		         style="skin_hotspotstyle" 
 				 ath="28.657" 
@@ -1400,7 +1400,7 @@
 		         style="skin_hotspotstyle" 
 				 ath="-53.734" 
 				 atv="23.799" 
-				 linkedscene="scene_27" />
+				 linkedscene="scene_27" linkedscene_lookat="96.000,0,120" />
 		<hotspot name="spot2" 
 		         style="skin_hotspotstyle" 
 				 ath="37.493" 
@@ -1410,7 +1410,7 @@
 		         style="skin_hotspotstyle" 
 				 ath="163.810" 
 				 atv="22.715" 
-				 linkedscene="scene_29" />
+				 linkedscene="scene_29" linkedscene_lookat="-50.799,0,120" />
 				 
 				 
 		<action name="updateradar">
@@ -1451,7 +1451,7 @@
 		         style="skin_hotspotstyle" 
 				 ath="93.534" 
 				 atv="24.887" 
-				 linkedscene="scene_28" />
+				 linkedscene="scene_28" linkedscene_lookat="102.101,0,120" />
 		<hotspot name="spot2" 
 		         style="skin_hotspotstyle" 
 				 ath="-87.500" 
@@ -1551,7 +1551,7 @@
 		         style="skin_hotspotstyle" 
 				 ath="-60.808" 
 				 atv="27.772" 
-				 linkedscene="scene_30" />
+				 linkedscene="scene_30" linkedscene_lookat="121.002,0,120" />
 		<hotspot name="spot2" 
 		         style="skin_hotspotstyle" 
 				 ath="32.964" 
