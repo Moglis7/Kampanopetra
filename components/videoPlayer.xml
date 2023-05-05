@@ -71,7 +71,7 @@
 				set(layer[videoplayer_plugin].scale, 0.0);				
 						
 				
-				set(layer[videoplayer_plugin].onvideocomplete, videoplayer_close(););
+				set(layer[videoplayer_plugin].onvideocomplete, if(layer[videoplayer_bg], if_minimized(); videoplayer_close();););
 				set(layer[videoplayer_plugin].onloaded, videoplayer_plugin_ready(%1));
 				<!-- set(plugin[videoplayer_plugin].onhover, js(console.log(get(plugin[videoplayer_plugin].time )))); -->
 				if('%2' != null, set(layer[videoplayer_plugin].posterurl,'%2'); );
