@@ -1,4 +1,4 @@
-<krpano vp_minimized='false' vp_video='./kampanopetraV4.mp4' vp_jpg='./kampanopetra00.jpg' volume="0.8" close_btn="./UI/CLOSE3.png">
+<krpano vp_minimized='false' vp_video='./Kampanopetra_final.mov' vp_jpg='./kampanopetra00.jpg' volume="0.8" close_btn="./UI/CLOSE3.png">
         
 
     <include url="../plugins/showtext.xml" />
@@ -14,7 +14,6 @@
             tween(layer[videoplayer_bg].scale, 1, 0.5, easeOutBack);            
             set(layer[videoplayer_bg].onclick, videoplayer_minimize());
 			set(layer[videoplayer_bg].enabled, true);
-
 
             <!-- set(plugin[videoplayer_plugin].scale, 1); -->
             <!-- set(plugin[videoplayer_plugin].alpha, 1); -->
